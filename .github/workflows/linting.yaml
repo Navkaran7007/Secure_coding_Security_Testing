@@ -1,4 +1,4 @@
-name: Super-Linter
+name: Super-Linter and bandit
 
 on:
   pull_request:
@@ -19,3 +19,11 @@ jobs:
         uses: super-linter/super-linter@v8.2.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Bandit Security Scan
+        uses: shundor/bandit-action@v1
+        with: 
+            path: "."
+            level: high
+            confidence: high
+            exit_zero: true           
