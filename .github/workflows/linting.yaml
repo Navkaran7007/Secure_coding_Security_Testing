@@ -1,9 +1,10 @@
 name: Super-Linter and bandit
 
 on:
+  push:
+    branches: [main]      
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   lint:
